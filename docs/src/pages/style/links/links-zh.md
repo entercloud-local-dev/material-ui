@@ -27,3 +27,31 @@ Link组件构建在 [Typography](/api/typography/) 组件之上。 您可以利�
 
 - `rel =“noopener”` 阻止新页面访问window.opener属性并确保它在单独的进程中运行。 如果没有此页面，目标页面可能会将您的页面重定向到恶意URL。
 - `rel ="noreferrer"` 具有相同的效果，但也阻止将 *Referer* 标头发送到新页面。 ⚠️删除引荐来源标题会影响分析。
+
+## 第三方路由库
+
+一个常见的用例是仅在客户端上执行导航，而不执行与服务器的.html往返。 `Link` 组件提供了处理此用例的属性： `组件`。
+
+```jsx
+import { Link as RouterLink } from 'react-router-dom'
+import Link from '@material-ui/core/Link';
+
+<Link component={RouterLink} to="/open-collective">
+  Link
+</Link>
+```
+
+或者如果你想避免属性碰撞：
+
+```jsx
+import { Link as RouterLink } from 'react-router-dom'
+import Link from '@material-ui/core/Link';
+
+const MyLink = props => <RouterLink to="/open-collective" {...props} />
+
+<Link component={MyLink}>
+  Link
+</Link>
+```
+
+*注意：创建 `MyLink` 是必要的，以防止意外卸载。 您可以在我们的 [组件属性指南](/guides/composition/#component-property)阅读更多相关信息。*

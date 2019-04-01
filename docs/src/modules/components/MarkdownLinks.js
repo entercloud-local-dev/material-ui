@@ -7,7 +7,7 @@ async function handleClick(event) {
   // Ignore non link clicks
   if (
     activeElement.nodeName !== 'A' ||
-    activeElement.getAttribute('data-next') === 'true' ||
+    activeElement.getAttribute('target') === '_blank' ||
     activeElement.getAttribute('href').indexOf('/') !== 0
   ) {
     return;
@@ -15,6 +15,7 @@ async function handleClick(event) {
 
   // Ignore click for new tab / new window behavior
   if (
+    event.defaultPrevented ||
     event.metaKey ||
     event.ctrlKey ||
     event.shiftKey ||

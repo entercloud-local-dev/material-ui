@@ -7,7 +7,13 @@ title: React中的媒体查询用于响应式设计
 
 > ⚠️ `useMediaQuery` 钩是还不稳定，因此它被出口与不稳定的前缀是不稳定的。 请注意，它取决于 *react@next* 和 *react-dom@next*。
 
-一些关键功能： - ⚛️它有一个惯用的React API。 - 🚀它具有高性能，它会观察文档以检测其媒体查询何时发生更改，而不是定期轮询值。 - 📦小于 [700 B gzipped](https://github.com/mui-org/material-ui/blob/master/.size-limit.js)。 - 💄它是反应敏感和反应媒体的替代方案，旨在简化。 - 🤖它支持服务器端渲染。
+一些关键特点：
+
+- ⚛️它有一个惯用的React API。
+- 🚀它具有高性能，它会观察文档以检测其媒体查询何时发生更改，而不是定期轮询值。
+- 📦小于 [700 B gzipped](https://github.com/mui-org/material-ui/blob/master/.size-limit.js)。
+- 💄它是反应敏感和反应媒体的替代方案，旨在简化。
+- 🤖它支持服务器端渲染。
 
 ## 简单的媒体查询
 

@@ -220,7 +220,7 @@ describe('<SelectInput />', () => {
       assert.strictEqual(handleBlur.args[0][0].target.name, 'blur-testing');
     });
 
-    [' ', 'ArrowUp', 'ArrowDown'].forEach(key => {
+    [' ', 'ArrowUp', 'ArrowDown', 'Enter'].forEach(key => {
       it(`'should open menu when pressed ${key} key on select`, () => {
         wrapper.find(`.${defaultProps.classes.select}`).simulate('keyDown', { key });
         assert.strictEqual(wrapper.state().open, true);
@@ -432,6 +432,18 @@ describe('<SelectInput />', () => {
       mount(<SelectInput {...defaultProps} inputRef={ref} onFocus={onFocus} />);
       ref.current.focus();
       assert.strictEqual(onFocus.called, true);
+    });
+  });
+
+  describe('prop: name', () => {
+    it('should have no id when name is not provided', () => {
+      const wrapper = shallow(<SelectInput {...defaultProps} />);
+      assert.strictEqual(wrapper.find('.select').props().id, undefined);
+    });
+
+    it('should have select-`name` id when name is provided', () => {
+      const wrapper = shallow(<SelectInput {...defaultProps} name="foo" />);
+      assert.strictEqual(wrapper.find('.select').props().id, 'select-foo');
     });
   });
 });

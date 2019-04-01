@@ -29,6 +29,24 @@ function loadDependencies() {
   loadScript('https://www.google-analytics.com/analytics.js', document.querySelector('head'));
 }
 
+if (process.browser) {
+  // eslint-disable-next-line no-console
+  console.log(
+    `%c
+
+███╗   ███╗ █████╗ ████████╗███████╗██████╗ ██╗ █████╗ ██╗      ██╗   ██╗██╗
+████╗ ████║██╔══██╗╚══██╔══╝██╔════╝██╔══██╗██║██╔══██╗██║      ██║   ██║██║
+██╔████╔██║███████║   ██║   █████╗  ██████╔╝██║███████║██║█████╗██║   ██║██║
+██║╚██╔╝██║██╔══██║   ██║   ██╔══╝  ██╔══██╗██║██╔══██║██║╚════╝██║   ██║██║
+██║ ╚═╝ ██║██║  ██║   ██║   ███████╗██║  ██║██║██║  ██║███████╗ ╚██████╔╝██║
+╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚══════╝  ╚═════╝ ╚═╝
+
+Tip: you can access the \`theme\` object directly in the console.
+`,
+    'font-family:monospace;color:#1976d2;font-size:12px;',
+  );
+}
+
 const pages = [
   {
     pathname: '/getting-started',
@@ -271,6 +289,9 @@ const pages = [
         title: 'About The Lab',
       },
       {
+        pathname: '/lab/breadcrumbs',
+      },
+      {
         pathname: '/lab/slider',
       },
       {
@@ -315,6 +336,14 @@ const pages = [
       },
       {
         pathname: '/discover-more/governance',
+      },
+    ],
+  },
+  {
+    pathname: '/blog',
+    children: [
+      {
+        pathname: '/blog/2019-developer-survey-results',
       },
     ],
   },

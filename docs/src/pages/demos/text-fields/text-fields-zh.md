@@ -104,6 +104,29 @@ components: FilledInput, FormControl, FormHelperText, Input, InputAdornment, Inp
 
 {{"demo": "pages/demos/text-fields/FormattedInputs.js"}}
 
+## 无障碍功能
+
+为了使文本字段可访问， **输入要链接到标签和辅助文本**。底层DOM节点应具有此结构。
+
+```jsx
+<div class="form-control">
+  <label for="my-input">Email address</label>
+  <input id="my-input" aria-describedby="my-helper-text" />
+  <span id="my-helper-text">We'll never share your email.</span>
+</div>
+```
+
+- 如果您使用的是 `TextField` 组件，则只需提供唯一的 `id`。
+- 如果您正在编写组件：
+
+```jsx
+<FormControl>
+  <InputLabel htmlFor="my-input">Email address</InputLabel>
+  <Input id="my-input" aria-describedby="my-helper-text" />
+  <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+</FormControl>
+```
+
 ## 补充项目
 
 对于更高级的用例，您可以利用：
